@@ -1,0 +1,5 @@
+map("n", "<A-T>", "<cmd>tabnew %<cr>", { desc = "New tab" })
+map("n", "<A-D>", "<cmd>tabclose<cr>", { desc = "Close tab" })
+map("n", "<A-L>", "<cmd>tabnext<cr>", { desc = "Next tab" })
+map("n", "<A-H>", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
+map("n", "<A-O>", "<cmd>tabonly<cr>", { desc = "Close all other tabs" })
