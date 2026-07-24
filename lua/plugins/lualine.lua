@@ -12,17 +12,6 @@ require("lualine").setup({
   sections = {
     lualine_a = {
       "mode",
-      {
-        function()
-          local reg = vim.fn.reg_recording()
-
-          if reg == "" then
-            return ""
-          end -- not recording
-
-          return "MACRO " .. string.upper(tostring(reg))
-        end,
-      },
     },
 
     lualine_b = {
@@ -30,6 +19,23 @@ require("lualine").setup({
     },
 
     lualine_c = {
+      {
+        function()
+          local reg = vim.fn.reg_recording()
+
+          if reg == "" then
+            return ""
+          end
+
+          return "MACRO " .. reg
+        end,
+        color = "DiagnosticWarn",
+        padding = {
+          left = 1,
+          right = 0,
+        },
+      },
+
       {
         "filetype",
         icon_only = true,
