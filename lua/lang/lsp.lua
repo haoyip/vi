@@ -9,7 +9,8 @@ map({ "n", "v", "i" }, "<A-.>", vim.lsp.buf.hover, { desc = "Show hover" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "To definition" })
 map("n", "g/", vim.lsp.buf.references, { desc = "To References" })
 
-map("n", "<leader>l", "<cmd>checkhealth vim.lsp<cr>", { desc = "LSP Info" })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+map("n", "<leader>cl", "<cmd>checkhealth vim.lsp<cr>", { desc = "LSP Info" })
 
 -- highlight
 vim.api.nvim_create_autocmd("LspAttach", {
