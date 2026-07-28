@@ -18,7 +18,7 @@ require("snacks").setup({
           icon = " ",
           key = "s",
           desc = "Restore Session",
-          action = ":lua require('persistence').load({ last = true })",
+          action = ":lua require('persistence').load()",
         },
         { icon = " ", key = "q", desc = "Quit", action = ":qa" },
       },
