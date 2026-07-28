@@ -49,6 +49,8 @@ require("snacks").setup({
   },
 
   indent = { enabled = true },
+  bigfile = { enabled = true },
+  quickfile = { enabled = true },
 
   statuscolumn = {
     enabled = true,
