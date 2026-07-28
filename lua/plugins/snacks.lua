@@ -52,6 +52,11 @@ require("snacks").setup({
   bigfile = { enabled = true },
   quickfile = { enabled = true },
 
+  words = {
+    enabled = true,
+    debounce = 50,
+  },
+
   statuscolumn = {
     enabled = true,
     folds = {

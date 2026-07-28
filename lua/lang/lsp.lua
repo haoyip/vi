@@ -12,34 +12,6 @@ map("n", "g/", vim.lsp.buf.references, { desc = "To References" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 map("n", "<leader>cl", "<cmd>checkhealth vim.lsp<cr>", { desc = "LSP Info" })
 
--- highlight
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("lsp-attach-highlight", { clear = true }),
-  callback = function(event)
-    local client = vim.lsp.get_client_by_id(event.data.client_id)
-
-    if not client then
-      return
-    end
-
-    if client:supports_method("textDocument/documentHighlight") then
-      local highlight_augroup = vim.api.nvim_create_augroup("lsp-document-highlight", { clear = false })
-
-      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-        group = highlight_augroup,
-        buffer = event.buf,
-        callback = vim.lsp.buf.document_highlight,
-      })
-
-      vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-        group = highlight_augroup,
-        buffer = event.buf,
-        callback = vim.lsp.buf.clear_references,
-      })
-    end
-  end,
-})
-
 -- other lsps
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("tombi")
