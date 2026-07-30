@@ -9,11 +9,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784476417,
-        "narHash": "sha256-Yas7gKjAP4JkE51Whsoor5FfrZGSwnYsVH7sBfZhR5E=",
+        "lastModified": 1784799140,
+        "narHash": "sha256-34eTa/v5M30QWUprUOuiRhFwlvBVk5/t+S+SXCUYohM=",
         "owner": "crisidev",
         "repo": "bacon-ls",
-        "rev": "5afaba02e06b2962a80ca237d93479b5e225d7f9",
+        "rev": "adc18a97833020631d0b7665916744f1075da5e5",
         "type": "github"
       },
       "original": {
@@ -100,11 +100,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1784497964,
-        "narHash": "sha256-vlHUuqAcbcH2RKmHbPiuQzbv1pnzzavXnI62RD0bqCU=",
+        "lastModified": 1785318670,
+        "narHash": "sha256-dN6Ou5x/+23FZLEpYP3IffO+NyJFzUlGumt1uu3MMaY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "241313f4e8e508cb9b13278c2b0fa25b9ca27163",
+        "rev": "0954f7ee2f6bb3dc7d4e3d0d8bcb8fd4bde4cfc5",
         "type": "github"
       },
       "original": {
