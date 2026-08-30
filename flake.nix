@@ -4,11 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     wrappers.url = "github:BirdeeHub/nix-wrapper-modules";
-
-    bacon-ls = {
-      url = "github:crisidev/bacon-ls";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    bacon-ls.url = "github:crisidev/bacon-ls";
   };
 
   outputs = {
