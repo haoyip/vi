@@ -43,14 +43,9 @@ map("n", "<A-/>", "gccj", { remap = true })
 map("i", "<A-/>", "<Esc>gccji", { remap = true })
 
 -- duplicate line, comments old line, keep cursor position
--- for terminal
 map("v", "<A-S-/>", "<Esc>mzyygccp`z:delmarks z<cr>jV", { remap = true })
 map("n", "<A-S-/>", "mzyygccp`z:delmarks z<cr>j", { remap = true })
 map("i", "<A-S-/>", "<Esc>mzyygccp`z:delmarks z<cr>ja", { remap = true })
--- for neovide
-map("v", "<A-?>", "<Esc>mzyygccp`z:delmarks z<cr>jV", { remap = true })
-map("n", "<A-?>", "mzyygccp`z:delmarks z<cr>j", { remap = true })
-map("i", "<A-?>", "<Esc>mzyygccp`z:delmarks z<cr>ja", { remap = true })
 
 -- select all, copy, paste
 map({ "n" }, "<leader><C-a>", "ggVG", { desc = "Selet all" })
