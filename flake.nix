@@ -31,7 +31,18 @@
     # Use the helper to generate the packages attribute for every system
     packages = forAllSystems (
       pkgs: let
-        pkgList = with pkgs; [
+        wrap = runtimePkgs:
+          inputs.wrappers.wrappers.neovim.wrap {
+            inherit pkgs;
+            env = {
+              "CONFIG_ROOT" = ./.;
+              "NVIM_APPNAME" = "nvim-hao-remote";
+            };
+            inherit runtimePkgs;
+            settings.config_directory = ./.;
+          };
+
+        fullPkgList = with pkgs; [
           # language server
           bacon-ls
           docker-compose-language-service
@@ -68,16 +79,15 @@
           ripgrep
           tree-sitter
         ];
+
+        lightPkgList = with pkgs; [
+          fzf
+          ripgrep
+          tree-sitter
+        ];
       in {
-        default = inputs.wrappers.wrappers.neovim.wrap {
-          inherit pkgs;
-          env = {
-            "CONFIG_ROOT" = ./.;
-            "NVIM_APPNAME" = "nvim-hao-remote";
-          };
-          runtimePkgs = pkgList;
-          settings.config_directory = ./.;
-        };
+        default = wrap fullPkgList;
+        light = wrap lightPkgList;
       }
     );
   };
