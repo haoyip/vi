@@ -31,13 +31,15 @@
     # Use the helper to generate the packages attribute for every system
     packages = forAllSystems (
       pkgs: let
-        wrap = runtimePkgs:
+        wrap = runtimePkgs: extraEnv:
           inputs.wrappers.wrappers.neovim.wrap {
             inherit pkgs;
-            env = {
-              "CONFIG_ROOT" = ./.;
-              "NVIM_APPNAME" = "nvim-hao-remote";
-            };
+            env =
+              {
+                "CONFIG_ROOT" = ./.;
+                "NVIM_APPNAME" = "nvim-hao-remote";
+              }
+              // extraEnv;
             inherit runtimePkgs;
             settings.config_directory = ./.;
           };
@@ -83,11 +85,10 @@
         lightPkgList = with pkgs; [
           fzf
           ripgrep
-          tree-sitter
         ];
       in {
-        default = wrap fullPkgList;
-        light = wrap lightPkgList;
+        default = wrap lightPkgList {"NVIM_LIGHT" = "1";};
+        full = wrap fullPkgList {};
       }
     );
   };

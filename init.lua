@@ -11,8 +11,20 @@ local prefix = vim.pesc(lua_path .. "/")
 
 local files = vim.fn.glob(lua_path .. "/**/*.lua", false, true)
 
+-- The lightweight package skips language-specific and tree-sitter/LSP config.
+local light_skip = {
+  ["plugins.lazydev"] = true,
+  ["plugins.treesitter"] = true,
+  ["plugins.treesitter-textobjects"] = true,
+  ["plugins.ts-autotag"] = true,
+}
+
 for _, file in ipairs(files) do
   local module = file:gsub(prefix, ""):gsub("%.lua$", ""):gsub("/", ".")
 
-  require(module)
+  local skip = vim.env.NVIM_LIGHT == "1" and (module:match("^lang%.") or light_skip[module])
+
+  if not skip then
+    require(module)
+  end
 end
